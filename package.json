@@ -1,0 +1,38 @@
+{
+  "name": "laravel-mix-blade-reload",
+  "version": "0.0.1",
+  "description": "Extension to reload browser through webpack when blade views update.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debute/laravel-mix-blade-reload.git"
+  },
+  "keywords": [
+    "laravel mix",
+    "webpack",
+    "vue",
+    "blade",
+    "reload",
+    "watch"
+  ],
+  "author": "Patrik Krehák",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/debute/laravel-mix-blade-reload/issues"
+  },
+  "homepage": "https://github.com/debute/laravel-mix-blade-reload",
+  "peerDependencies": {
+    "laravel-mix": "^4.0.7"
+  },
+  "dependencies": {
+    "chokidar": "3.0.2"
+  }
+}
