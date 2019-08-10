@@ -33,7 +33,7 @@ class BladeReload {
 
         let self = this;
 
-        this.log('bladeReload: webpack config updated');
+        this.log('webpack config updated');
         webpackConfig.devServer.after = (app, server) => {
             self.after(app, server);
         };
@@ -45,11 +45,11 @@ class BladeReload {
         }
 
         this.serverHandler = server;
-        this.log('bladeReload: webpack server handler attached');
+        this.log('webpack server handler attached');
     }
 
     reload(event, path) {
-        this.log('bladeReload: [' + event + '] ' + path);
+        this.log('[' + event + '] ' + path);
 
         if(typeof this.serverHandler !== 'undefined') {
             this.serverHandler.sockWrite(this.serverHandler.sockets, "content-changed");
@@ -60,7 +60,7 @@ class BladeReload {
 
     log(message) {
         if(this.options.debug === true) {
-            console.log(message);
+            console.log('laravel-mix-' + this.name() + ': ' + message);
         }
     }
 
