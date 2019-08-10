@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-blade-reload",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extension to reload browser through webpack when blade views update.",
   "main": "index.js",
   "files": [
