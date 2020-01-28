@@ -2,9 +2,9 @@
 
 **Laravel Mix extension to auto-reload browser when you change the blade views.**
 
-* [Installation](https://github.com/debute/laravel-mix-blade-reload#installation)
-* [Options](https://github.com/debute/laravel-mix-blade-reload#options)
-* [Changelog](https://github.com/debute/laravel-mix-blade-reload#changelog)
+* [Installation](https://github.com/krehak/laravel-mix-blade-reload#installation)
+* [Options](https://github.com/krehak/laravel-mix-blade-reload#options)
+* [Changelog](https://github.com/krehak/laravel-mix-blade-reload#changelog)
 
 ## Installation
 
