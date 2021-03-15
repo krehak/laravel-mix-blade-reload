@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "chokidar": "^3.5.1",
-    "laravel-mix": "^6.0.13",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
