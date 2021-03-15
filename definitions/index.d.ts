@@ -1,3 +1,4 @@
+import { WebpackOptionsNormalized } from 'webpack';
 export declare class BladeReload {
     private enabled;
     private options;
@@ -29,11 +30,11 @@ export declare class BladeReload {
      * @param {object} webpackConfig
      * @returns {void}
      */
-    webpackConfig(webpackConfig: object): void;
+    webpackConfig(webpackConfig: WebpackOptionsNormalized): void;
     /**
      * Webpack's `after` method middleware
-     * @param app
      * @param server
+     * @param compiler
      * @returns {void}
      */
     private after;

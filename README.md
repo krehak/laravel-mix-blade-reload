@@ -56,7 +56,9 @@ recursively, or glob patterns.
 
 ## Changelog
 
-#### New in version 1.x
+#### New in version 2.x
+* Now supports `laravel-mix` version 6
 
+#### New in version 1.x
 * Rewrited into TypeScript
 * Option `paths` was renamed to `path`

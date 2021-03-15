@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.BladeReload = void 0;
 var mix = require('laravel-mix');
 var chokidar_1 = require("chokidar");
 var yargs_1 = require("yargs");
@@ -60,23 +61,21 @@ var BladeReload = /** @class */ (function () {
         var _this = this;
         if (!this.enabled)
             return;
-        // @ts-ignore
-        this.webpackOriginalAfterCallback = webpackConfig.devServer.after;
+        this.webpackOriginalAfterCallback = webpackConfig.devServer.onAfterSetupMiddleware;
         this.log('webpack config updated');
-        // @ts-ignore
-        webpackConfig.devServer.after = function (app, server) {
-            _this.after(app, server);
+        webpackConfig.devServer.onAfterSetupMiddleware = function (server, compiler) {
+            _this.after(server, compiler);
         };
     };
     /**
      * Webpack's `after` method middleware
-     * @param app
      * @param server
+     * @param compiler
      * @returns {void}
      */
-    BladeReload.prototype.after = function (app, server) {
+    BladeReload.prototype.after = function (server, compiler) {
         if (typeof this.webpackOriginalAfterCallback === 'function') {
-            this.webpackOriginalAfterCallback(app, server);
+            this.webpackOriginalAfterCallback(server, compiler);
         }
         this.serverHandler = server;
         this.log('webpack server handler attached');

@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 
+import { WebpackOptionsNormalized } from 'webpack';
 import { watch as chokidarWatch } from 'chokidar';
 import { argv } from 'yargs';
 
@@ -58,29 +59,27 @@ export class BladeReload {
      * @param {object} webpackConfig
      * @returns {void}
      */
-    public webpackConfig(webpackConfig: object): void {
+    public webpackConfig(webpackConfig: WebpackOptionsNormalized): void {
         if(!this.enabled) return;
 
-        // @ts-ignore
-        this.webpackOriginalAfterCallback = webpackConfig.devServer.after;
+        this.webpackOriginalAfterCallback = webpackConfig.devServer.onAfterSetupMiddleware;
 
         this.log('webpack config updated');
 
-        // @ts-ignore
-        webpackConfig.devServer.after = (app: any, server: any) => {
-            this.after(app, server);
+        webpackConfig.devServer.onAfterSetupMiddleware = (server: any, compiler: any) => {
+            this.after(server, compiler);
         };
     }
 
     /**
      * Webpack's `after` method middleware
-     * @param app
      * @param server
+     * @param compiler
      * @returns {void}
      */
-    private after(app: any, server: any): void {
+    private after(server: any, compiler: any): void {
         if(typeof this.webpackOriginalAfterCallback === 'function') {
-            this.webpackOriginalAfterCallback(app, server);
+            this.webpackOriginalAfterCallback(server, compiler);
         }
 
         this.serverHandler = server;
