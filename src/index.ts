@@ -92,7 +92,7 @@ export class BladeReload {
      */
     private reload(): void {
         if(typeof this.serverHandler !== 'undefined') {
-            this.serverHandler.sockWrite(this.serverHandler.sockets, 'content-changed');
+            this.serverHandler.sendMessage(this.serverHandler.webSocketServer.clients, 'content-changed');
         }
     }
 

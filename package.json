@@ -1,6 +1,6 @@
 {
   "name": "laravel-mix-blade-reload",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Laravel Mix extension to auto-reload browser when you change the blade views.",
   "main": "dist/index.js",
   "files": [
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/krehak/laravel-mix-blade-reload",
   "peerDependencies": {
-    "laravel-mix": "^6.0"
+    "laravel-mix": "^6.0.22"
   },
   "dependencies": {
     "chokidar": "^3.5.1",

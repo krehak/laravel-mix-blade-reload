@@ -45,7 +45,7 @@ var BladeReload = /** @class */ (function () {
         var _this = this;
         if (!this.enabled)
             return;
-        chokidar_1.watch(this.options.path, {
+        (0, chokidar_1.watch)(this.options.path, {
             ignoreInitial: true
         }).on('all', function (event, path) {
             _this.log('[' + event + '] ' + path);
@@ -86,7 +86,7 @@ var BladeReload = /** @class */ (function () {
      */
     BladeReload.prototype.reload = function () {
         if (typeof this.serverHandler !== 'undefined') {
-            this.serverHandler.sockWrite(this.serverHandler.sockets, 'content-changed');
+            this.serverHandler.sendMessage(this.serverHandler.webSocketServer.clients, 'content-changed');
         }
     };
     /**
